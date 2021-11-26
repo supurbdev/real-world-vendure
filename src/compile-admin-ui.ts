@@ -19,12 +19,13 @@ export function customAdminUi(options: { recompile: boolean; devMode: boolean })
       outputPath: compiledAppPath,
 
       extensions: [
-        ReviewsPlugin.uiExtensions,
-        nonAngularUiExtensions,
         {
           globalStyles: path.join(__dirname, 'styles/custom-theme.scss'),
         },
+        ReviewsPlugin.uiExtensions,
+        nonAngularUiExtensions,
       ],
+
       devMode: options.devMode,
     });
   } else {

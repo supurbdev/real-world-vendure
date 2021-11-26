@@ -1,14 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  Customer,
-  DeepPartial,
-  Product,
-  ProductVariant,
-  VendureEntity,
-} from "@vendure/core";
-import { Column, Entity, ManyToOne } from "typeorm";
+import { Customer, DeepPartial, Product, ProductVariant, VendureEntity } from '@vendure/core';
+import { Column, Entity, ManyToOne } from 'typeorm';
 
-import { ReviewState } from "../types";
+import { ReviewState } from '../types';
 
 @Entity()
 export class ProductReview extends VendureEntity {
@@ -16,22 +10,22 @@ export class ProductReview extends VendureEntity {
     super(input);
   }
 
-  @ManyToOne((type) => Product)
+  @ManyToOne(type => Product)
   product: Product;
 
-  @ManyToOne((type) => ProductVariant)
+  @ManyToOne(type => ProductVariant)
   productVariant: ProductVariant | null;
 
   @Column()
   summary: string;
 
-  @Column("text")
+  @Column('text')
   body: string;
 
   @Column()
   rating: number;
 
-  @ManyToOne((type) => Customer)
+  @ManyToOne(type => Customer)
   author: Customer;
 
   @Column()
@@ -46,10 +40,10 @@ export class ProductReview extends VendureEntity {
   @Column({ default: 0 })
   downvotes: number;
 
-  @Column("varchar")
+  @Column('varchar')
   state: ReviewState;
 
-  @Column("text", { nullable: true, default: null })
+  @Column('text', { nullable: true, default: null })
   response: string;
 
   @Column({ nullable: true, default: null })

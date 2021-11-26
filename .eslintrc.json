@@ -14,16 +14,7 @@
     "jest": true
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "tabWidth": 2,
-        "trailingComma": "all",
-        "printWidth": 110,
-        "arrowParens": "avoid"
-      }
-    ],
+    "prettier/prettier": ["error", {}],
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-function-return-type": "off",

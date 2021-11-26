@@ -4,7 +4,9 @@ import { DefaultJobQueuePlugin, DefaultSearchPlugin } from '@vendure/core';
 import { defaultEmailHandlers, EmailPlugin } from '@vendure/email-plugin';
 import path from 'path';
 import { customAdminUi } from './compile-admin-ui';
-import { BraintreePlugin } from './plugins/braintree/braintree-plugin';
+import { AllotmentCheckerPlugin } from './plugins/allotment-checker';
+import { DispensaryChannelsPlugin } from './plugins/dispensary-channels';
+import { OnboardingPlugin } from './plugins/onboarding';
 import { ReviewsPlugin } from './plugins/reviews/reviews-plugin';
 
 const IS_PROD = path.basename(__dirname) === 'dist';
@@ -40,6 +42,9 @@ export const plugins = [
       hideVersion: false,
     },
   }),
-  BraintreePlugin,
+  // BraintreePlugin,
+  DispensaryChannelsPlugin,
   ReviewsPlugin,
+  OnboardingPlugin,
+  AllotmentCheckerPlugin,
 ];
