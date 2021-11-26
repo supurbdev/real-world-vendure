@@ -1,1 +1,1 @@
-export { BraintreePlugin } from './braintree-plugin';
+export { BraintreePlugin } from "./braintree-plugin";

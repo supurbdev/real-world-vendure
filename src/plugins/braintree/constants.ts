@@ -1,1 +1,1 @@
-export const loggerCtx = 'BraintreePlugin';
+export const loggerCtx = "BraintreePlugin";

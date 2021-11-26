@@ -1,27 +1,26 @@
-
 .review-info {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .rating-input {
-    max-width: 64px;
-    margin-right: 6px;
+  max-width: 64px;
+  margin-right: 6px;
 }
 
 ::ng-deep .clr-form-control {
-    flex: 1;
+  flex: 1;
 
-    .clr-control-container {
-        width: 100%;
-    }
-    textarea {
-        width: 100%;
-        height: 250px;
-    }
+  .clr-control-container {
+    width: 100%;
+  }
+  textarea {
+    width: 100%;
+    height: 250px;
+  }
 }
 
 .product-image {
-    max-width: 300px;
-    margin: auto;
+  max-width: 300px;
+  margin: auto;
 }

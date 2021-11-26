@@ -1,14 +1,13 @@
 @import "../../reviews-ui";
 
 :host {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .rating {
-    margin-right: 12px;
+  margin-right: 12px;
 }
 
 clr-icon {
-    color: var(--color-star-rating);
+  color: var(--color-star-rating);
 }
-

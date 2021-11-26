@@ -1,47 +1,59 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 import {
-    addNavMenuItem,
-    registerCustomFieldComponent,
-    registerDashboardWidget,
-    setDashboardWidgetLayout,
-} from '@vendure/admin-ui/core';
+  addNavMenuItem,
+  registerCustomFieldComponent,
+  registerDashboardWidget,
+  setDashboardWidgetLayout,
+} from "@vendure/admin-ui/core";
 
-import { ReviewCountLinkComponent } from './components/review-count-link/review-count-link.component';
-import { StarRatingComponent } from './components/star-rating/star-rating.component';
-import { ReviewsSharedModule } from './reviews-shared.module';
-import { RelationReviewInputComponent } from './components/featured-review-selector/featured-review-selector.component';
+import { ReviewCountLinkComponent } from "./components/review-count-link/review-count-link.component";
+import { StarRatingComponent } from "./components/star-rating/star-rating.component";
+import { ReviewsSharedModule } from "./reviews-shared.module";
+import { RelationReviewInputComponent } from "./components/featured-review-selector/featured-review-selector.component";
 
 @NgModule({
-    imports: [ReviewsSharedModule],
-    declarations: [ReviewCountLinkComponent, RelationReviewInputComponent],
-    providers: [
-        registerCustomFieldComponent('Product', 'reviewCount', ReviewCountLinkComponent),
-        registerCustomFieldComponent('Product', 'reviewRating', StarRatingComponent),
-        registerCustomFieldComponent('Product', 'featuredReview', RelationReviewInputComponent),
-        addNavMenuItem(
-            {
-                id: 'reviews',
-                label: 'Product reviews',
-                routerLink: ['/extensions/product-reviews'],
-                icon: 'star',
-            },
-            'marketing',
+  imports: [ReviewsSharedModule],
+  declarations: [ReviewCountLinkComponent, RelationReviewInputComponent],
+  providers: [
+    registerCustomFieldComponent(
+      "Product",
+      "reviewCount",
+      ReviewCountLinkComponent
+    ),
+    registerCustomFieldComponent(
+      "Product",
+      "reviewRating",
+      StarRatingComponent
+    ),
+    registerCustomFieldComponent(
+      "Product",
+      "featuredReview",
+      RelationReviewInputComponent
+    ),
+    addNavMenuItem(
+      {
+        id: "reviews",
+        label: "Product reviews",
+        routerLink: ["/extensions/product-reviews"],
+        icon: "star",
+      },
+      "marketing"
+    ),
+    registerDashboardWidget("reviews", {
+      title: "Latest reviews",
+      supportedWidths: [4, 6, 8, 12],
+      loadComponent: () =>
+        import("./widgets/reviews-widget/reviews-widget.component").then(
+          (m) => m.ReviewsWidgetComponent
         ),
-        registerDashboardWidget('reviews', {
-            title: 'Latest reviews',
-            supportedWidths: [4, 6, 8, 12],
-            loadComponent: () =>
-                import('./widgets/reviews-widget/reviews-widget.component').then(
-                    m => m.ReviewsWidgetComponent,
-                ),
-        }),
-        setDashboardWidgetLayout([
-            { id: 'welcome', width: 12 },
-            { id: 'orderSummary', width: 6 },
-            { id: 'reviews', width: 6 },
-            { id: 'latestOrders', width: 12 },
-        ]),
-    ],
-    exports: [],
+    }),
+    setDashboardWidgetLayout([
+      { id: "welcome", width: 12 },
+      { id: "orderSummary", width: 6 },
+      { id: "reviews", width: 6 },
+      { id: "latestOrders", width: 12 },
+    ]),
+  ],
+  exports: [],
 })
 export class ReviewsUiExtensionModule {}
